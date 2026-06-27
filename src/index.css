@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0d211c;
+  --color-pure-white: #ffffff;
+  --color-fog: #eeeeee;
+  --color-ash: #15302a;
+  --color-graphite: #1d3e36;
+  --color-dove: rgba(13, 33, 28, 0.2);
+  --color-slate: rgba(13, 33, 28, 0.35);
+  --color-obsidian: #0d211c;
+  --color-rust: #2fa084;
+  --color-apricot-wash: rgba(111, 207, 151, 0.25);
+  --color-sky-wash: rgba(47, 160, 132, 0.18);
+
+  /* Accent status mapped to conventional safety colors */
+  --color-status-good: #2fa084;
+  --color-status-warning: #d97706;
+  --color-status-critical: #dc2626;
+
+  --font-signifier: 'Inter', system-ui, sans-serif;
+  --font-sohne: 'Inter', system-ui, sans-serif;
+
+  --radius-tags: 9999px;
+  --radius-cards: 24px;
+  --radius-images: 12px;
+  --radius-inputs: 16px;
+  --radius-avatars: 9999px;
+  --radius-buttons: 9999px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sohne);
+    background-color: var(--color-pure-white);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.009em;
+  }
+}
+
+/* Steep Style Utilities */
+.font-signifier {
+  font-family: var(--font-signifier);
+}
+
+.font-sohne {
+  font-family: var(--font-sohne);
+}
+
+/* Shadows overridden to Flat Outline Style */
+.shadow-steep {
+  box-shadow: none !important;
+  border: 1px solid var(--color-dove);
+}
+
+.shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl, .shadow {
+  box-shadow: none !important;
+}
+
+/* Steep Cards */
+.steep-card {
+  background-color: var(--color-pure-white);
+  border-radius: var(--radius-cards);
+  padding: 24px;
+  border: 1px solid var(--color-dove);
+  box-shadow: none !important;
+}
+
+.steep-card-warm {
+  background-color: var(--color-apricot-wash);
+  border-radius: var(--radius-cards);
+  padding: 24px;
+}
+
+.steep-card-cool {
+  background-color: var(--color-sky-wash);
+  border-radius: var(--radius-cards);
+  padding: 24px;
+}
+
+/* Steep Buttons */
+.steep-btn-primary {
+  background-color: #2fa084;
+  color: var(--color-pure-white);
+  font-family: var(--font-sohne);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 24px;
+  border-radius: var(--radius-buttons);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.009em;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.steep-btn-primary:hover {
+  background-color: #1f6f5f;
+}
+
+.steep-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.steep-btn-secondary {
+  color: var(--color-ink);
+  font-family: var(--font-sohne);
+  font-weight: 500;
+  font-size: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.009em;
+  padding: 8px 12px;
+  transition: opacity 0.15s ease;
+}
+
+.steep-btn-secondary:hover {
+  text-decoration: underline;
+}
+
+/* Steep Inputs */
+.steep-input {
+  background-color: var(--color-pure-white);
+  border: 1px solid var(--color-dove);
+  border-radius: var(--radius-inputs);
+  padding: 12px 20px;
+  font-size: 15px;
+  font-family: var(--font-sohne);
+  color: var(--color-ink);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.steep-input:focus {
+  outline: none;
+  border-color: var(--color-graphite);
+  background-color: var(--color-fog);
+}
+
+.steep-input::placeholder {
+  color: var(--color-graphite);
+}
+
+/* Soft Warm Hero Gradient Glow */
+.hero-glow {
+  background: radial-gradient(circle at center, rgba(111, 207, 151, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+}
