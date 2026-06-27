@@ -34,11 +34,6 @@ function App() {
   });
 
   const [selectedArticleId, setSelectedArticleId] = useState<string | null>(null);
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    return localStorage.getItem('cardiolung_dark_mode') === 'true' || 
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
   // Persist State
   useEffect(() => {
     localStorage.setItem('cardiolung_profile', JSON.stringify(profile));
@@ -51,16 +46,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('cardiolung_logged_in', String(isLoggedIn));
   }, [isLoggedIn]);
-
-  // Dark mode class toggle
-  useEffect(() => {
-    localStorage.setItem('cardiolung_dark_mode', String(darkMode));
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   // Routing checks
   useEffect(() => {
@@ -221,12 +206,12 @@ function App() {
               <img 
                 src="/logo.png" 
                 alt="AIRA Logo" 
-                className="w-7 h-7 rounded-[8px] object-cover" 
+                className="w-10 h-10 rounded-[10px] object-contain" 
               />
               <img 
                 src="/name.png" 
                 alt="AIRA" 
-                className="h-5 object-contain" 
+                className="h-7 object-contain" 
               />
             </div>
 
@@ -260,14 +245,6 @@ function App() {
 
             {/* Header Right utilities */}
             <div className="flex items-center space-x-4">
-              {/* Dark mode button - styled in Steep style */}
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="px-3 py-1.5 rounded-[9999px] bg-fog border border-dove/40 hover:bg-dove/20 transition-colors text-xs font-sohne font-[450] text-ash cursor-pointer"
-                title="Toggle Mode Gelap"
-              >
-                {darkMode ? 'Light Mode' : 'Dark Mode'}
-              </button>
               
               {/* Avatar Initial - Pastel Mint/Sky/Peach circle badge */}
               <div 
